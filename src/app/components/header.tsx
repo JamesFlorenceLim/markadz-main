@@ -43,11 +43,11 @@ const Header = () => {
 
       <div className="flex items-center space-x-2 relative">
         <div className="h-6 border-l border-gray-300"></div>
-        <img
+        {/* <img
           alt={user.name}
           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
           className="w-8 h-8 rounded-full"
-        />
+        /> */}
 
         <button onClick={toggleDropdown} className="focus:outline-none flex items-center space-x-3 ">
           <div className="flex flex-col items-start">
