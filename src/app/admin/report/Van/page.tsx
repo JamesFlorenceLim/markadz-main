@@ -26,21 +26,26 @@ const VanDriverOperatorsReportPage = () => {
     useEffect(() => {
         if (selectedVanDriverOperator !== null && startDate && endDate) {
             const fetchAssignmentHistory = async () => {
-                const response = await axios.get(`/api/report?type=assignmentHistory&vanDriverOperatorId=${selectedVanDriverOperator}&startDate=${startDate}&endDate=${endDate}`);
-                const history = response.data;
-                console.log('Assignment History:', history); // Log the response data
-                setAssignmentHistory(history);
-
-                // Set the selected driver's name
-                const selectedDriver = vanDriverOperators.find(operator => operator.id === selectedVanDriverOperator);
-                if (selectedDriver) {
-                    setSelectedDriverName(`${selectedDriver.Driver.firstname} ${selectedDriver.Driver.lastname}`);
-                    setSelectedDriverPlateNumber(selectedDriver.Van.plate_number);
+                try {
+                    const response = await axios.get(`/api/report?type=assignmentHistory&vanDriverOperatorId=${selectedVanDriverOperator}&startDate=${startDate}&endDate=${endDate}`);
+                    const history = response.data;
+                    console.log('Assignment History:', history); // Log the response data
+                    setAssignmentHistory(history);
+    
+                    // Set the selected driver's name
+                    const selectedDriver = vanDriverOperators.find(operator => operator.id === selectedVanDriverOperator);
+                    if (selectedDriver) {
+                        setSelectedDriverName(`${selectedDriver.Driver.firstname} ${selectedDriver.Driver.lastname}`);
+                        setSelectedDriverPlateNumber(selectedDriver.Van.plate_number);
+                    }
+                } catch (error) {
+                    console.error('Error fetching assignment history:', error);
                 }
             };
             fetchAssignmentHistory();
         }
-    }, [selectedVanDriverOperator, startDate, endDate]);
+    }, [selectedVanDriverOperator, startDate, endDate, vanDriverOperators]); // Add vanDriverOperators to the dependency array
+    
 
     const generatePDF = async () => {
         const pdf = new jsPDF();
