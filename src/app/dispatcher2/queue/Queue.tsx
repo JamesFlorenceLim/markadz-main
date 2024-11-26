@@ -279,12 +279,12 @@ const Terminal2 = () => {
 
           {/* Vans */}
           <table className="bg-white shadow-md rounded-lg w-[28rem] ml-[-3.1rem]">
-            <thead className='bg-blue-300'>
+            <thead className='bg-blue-400 text-white'>
               <tr className='text-left'>
-                <th className="py-2 px-4 border-b uppercase whitespace-nowrap">Order</th>
+                <th className="py-2 px-4 border-b uppercase whitespace-nowrap rounded-l-lg">Order</th>
                 <th className="py-2 px-4 border-b uppercase whitespace-nowrap">Driver</th>
                 <th className="py-2 px-4 border-b uppercase whitespace-nowrap">Plate Number</th>
-                <th className="py-2 px-4 border-b uppercase whitespace-nowrap">
+                <th className="py-2 px-4 border-b uppercase whitespace-nowrap rounded-r-lg">
                 <input className="w-4 h-4"
                 type="checkbox"
                 onChange={handleSelectAll}
@@ -316,15 +316,15 @@ const Terminal2 = () => {
         <section className="mb-8 w-full mt-3 ">
           <h2 className="text-2xl font-semibold mb-4 text-gray-700 ml-[2rem]">Queued Vans</h2>
           <table className="min-w-full bg-white shadow-md rounded-lg ml-[2rem]">
-              <thead>
-          <tr className="text-left bg-blue-300">
-            <th className="py-2 px-4 border-b uppercase">Date</th>
+              <thead className='bg-blue-400 text-white'>
+          <tr className="text-left ">
+            <th className="py-2 px-4 border-b uppercase rounded-l-lg">Date</th>
             <th className="py-2 px-2 border-b uppercase whitespace-nowrap">Plate Number</th>
             <th className="py-2 px-2 border-b uppercase whitespace-nowrap">Queued At</th>
             <th className="py-2 px-2 border-b uppercase whitespace-nowrap">Est. Departure Time</th>
             <th className="py-2 px-2 border-b uppercase whitespace-nowrap">Est. Arrival Time</th>
-            <th className="py-2 text-center border-b uppercase">Actions</th>
-            <th className="py-2 text-left border-b uppercase">Schedule</th>
+            <th className="py-2 px-2 text-center border-b uppercase">Actions</th>
+            <th className="py-2 text-left border-b uppercase rounded-r-lg">Schedule</th>
           </tr>
               </thead>
               <tbody className='whitespace-nowrap'>
